@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { createUser, getUser } from "../controller/userController.js";
+import { createUser, getUser, updateUser } from "../controller/userController.js";
 
 const router = Router();
 
@@ -7,7 +7,7 @@ const router = Router();
 router.get('/',(req, res)=>{res.send("Server is running sucessful")}); 
 router.get('/user',getUser); 
 router.post('/user',createUser);
-router.put('/user/:id',()=>{});
+router.put('/user/:id',updateUser);
 router.delete('/user/:id',()=>{});
 
 export default router;
