@@ -23,7 +23,7 @@ export const createUser = async (req, res)=>{
         })
 
         await user.save();
-        return createSuccessMessage({message: user, res})
+        return createSuccessMessage({message: "User created sucessfuly", res, data:user});
     }
     catch(err){
         return createErrorMessage({message:err.message, res});
@@ -33,10 +33,13 @@ export const createUser = async (req, res)=>{
 export const getUser = async (req, res)=>{
     try{
         const user = await Userdb.find();
-        return createSuccessMessage({message: user, res});
+        if(!user[0]){
+            return createErrorMessage({message:`No user found`, res, statusCode:404});
+        }
+        return createSuccessMessage({message: user, res, data:user});
     }
     catch(err){
-        return createErrorMessage({message:err.message, res});
+        return createErrorMessage({message:err.message, res, data: null});
     }
 }
 
@@ -50,8 +53,22 @@ export const updateUser = async (req, res) => {
         if(!data){
             return createErrorMessage({message:`Cannot update user with it ${req.params.id}. Maybe user not found. `, res, statusCode:404})
         }
-        return createSuccessMessage({message: data, res});
+        return createSuccessMessage({message: "User updated sucessfully", res, data});
 
+    } catch (error) {
+        
+    }
+}
+
+export const deleteUser = async (req, res) => {
+    try {
+        const data = await Userdb.findByIdAndDelete(req.params.id);
+        if(!data){
+            return createErrorMessage({message:`Cannot update delete with it ${req.params.id}. Maybe user not found. `, res, statusCode:404});
+
+        }
+        return createSuccessMessage({message: "sucessfully delted the user", res, data});
+        
     } catch (error) {
         
     }
