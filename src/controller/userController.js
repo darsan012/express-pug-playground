@@ -4,7 +4,6 @@ import { createErrorMessage, createSuccessMessage } from "../helpers/errorHandle
 // creating new user
 export const createUser = async (req, res)=>{
     try{
-        console.log("Hello there!");
         //validating request
         if(!req.body){
             return createErrorMessage({message:"Content cannot be empty", res});
@@ -25,6 +24,16 @@ export const createUser = async (req, res)=>{
 
         await user.save();
         return createSuccessMessage({message: user, res})
+    }
+    catch(err){
+        return createErrorMessage({message:err.message, res});
+    }
+}
+
+export const getUser = async (req, res)=>{
+    try{
+        const user = await Userdb.find();
+        return createSuccessMessage({message: user, res});
     }
     catch(err){
         return createErrorMessage({message:err.message, res});
