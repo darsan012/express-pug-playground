@@ -1,0 +1,23 @@
+doctype html
+html
+  head
+    title User Management App
+    link(rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css")
+    link(rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto")
+    link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css")
+    style.
+      body, h1, h2, h3, h4, h5, h6 {font-family: "Roboto", sans-serif}
+      .w3-bar .w3-button {padding: 16px;}
+  body
+    //- Navigation Bar
+    .w3-bar.w3-black
+      a.w3-bar-item.w3-button(href="/user") Home
+      a.w3-bar-item.w3-button(href="/user/add") Add User
+      a.w3-bar-item.w3-button(href="/user") User List
+    .w3-container.w3-margin-top
+      //- Dynamic content block from each page
+      block content
+
+    //- Footer
+    footer.w3-container.w3-black.w3-center.w3-padding-16
+      p &copy; #{new Date().getFullYear()} User Management System. All rights reserved.

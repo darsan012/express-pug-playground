@@ -1,0 +1,22 @@
+extends layout
+
+block content
+  .w3-container.w3-card-4.w3-light-grey.w3-padding-16
+    h2 User List
+    table.w3-table-all.w3-hoverable
+      thead
+        tr.w3-light-grey
+          th First Name
+          th Last Name
+          th Email
+          th Actions
+      tbody
+        each user in users
+          tr
+            td= user.firstName
+            td= user.lastName
+            td= user.email
+            td
+              a.w3-button.w3-small.w3-teal(href=`/user/update/${user._id}`) Edit
+              form(action=`/user/delete/${user._id}` method="POST" style="display:inline")
+                button.w3-button.w3-small.w3-red(type="submit") Delete

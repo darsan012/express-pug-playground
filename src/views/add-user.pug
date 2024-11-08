@@ -1,0 +1,38 @@
+extends layout
+
+block content
+  .w3-container.w3-card-4.w3-light-grey.w3-padding-16
+    h2 Add New User
+    form(action="/user/add" method="POST" class="w3-container w3-margin-top")
+      .w3-section
+        label First Name
+        input.w3-input(type="text" name="firstName" required)
+      .w3-section
+        label Last Name
+        input.w3-input(type="text" name="lastName" required)
+      .w3-section
+        label Date of Birth
+        input.w3-input(type="date" name="dateOfBirth" required)
+      .w3-section
+        label Address Line 1
+        input.w3-input(type="text" name="address1" required)
+      .w3-section
+        label Address Line 2
+        input.w3-input(type="text" name="address2")
+      .w3-section
+        label Postal Code
+        input.w3-input(type="text" name="postalCode" required)
+      .w3-section
+        label Country
+        input.w3-input(type="text" name="country" required)
+      .w3-section
+        label Phone Number
+        input.w3-input(type="text" name="phoneNumber" required)
+      .w3-section
+        label Email
+        input.w3-input(type="email" name="email" required)
+      .w3-section
+        label User Notes
+        textarea.w3-input(name="userNotes")
+      .w3-section
+        button.w3-button.w3-teal.w3-round(type="submit") Add User

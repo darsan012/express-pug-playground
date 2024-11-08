@@ -1,0 +1,40 @@
+extends layout
+
+block content
+  h2 Update User
+  form(action=`/user/update/${user._id}` method="POST" class="w3-container w3-margin-top")
+      .w3-section
+        label First Name
+        input.w3-input(type="text" name="firstName" value= user.firstName required)
+      .w3-section
+        label Last Name
+        input.w3-input(type="text" name="lastName" value= user.lastName required)
+      .w3-section
+        label Date of Birth
+        input.w3-input(type="date" name="dateOfBirth"  value= formattedDate required)
+      .w3-section
+        label Address Line 1
+        input.w3-input(type="text" name="address1" value=user.address1 required)
+      .w3-section
+        label Address Line 2
+        input.w3-input(type="text" name="address2" value=user.address2)
+      .w3-section
+        label Postal Code
+        input.w3-input(type="text" name="postalCode" value=user.postalCode required)
+      .w3-section
+        label Country
+        input.w3-input(type="text" name="country" value=user.country required)
+      .w3-section
+        label Phone Number
+        input.w3-input(type="text" name="phoneNumber" value=user.phoneNumber required)
+      .w3-section
+        label Email
+        input.w3-input(type="email" name="email" value=user.email required)
+      .w3-section
+        label User Notes
+        textarea.w3-input(type="text" name="userNotes") #{user.userNotes}
+      .w3-section
+        button.w3-button.w3-teal.w3-round(type="submit") Update User
+
+  form(action=`/user/delete/${user._id}` method="DELETE")
+    button(type="submit" style="display:inline") Delete User
