@@ -13,10 +13,8 @@ router.post('/add',createUser);
 router.get('/',getUser); 
 router.get('/update/:id', async (req, res) => {
     const user = await Userdb.findById(req.params.id);
-    const dob = user.dateOfBirth;
     // formatting date to be on dd/mm/yyyy format
     const formattedDate = user.dateOfBirth ? user.dateOfBirth.toISOString().split('T')[0] : '';
-    console.log(user.userNotes)
     return res.render('update-user', { user, formattedDate });
   });
 router.post('/update/:id',updateUser);

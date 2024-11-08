@@ -35,7 +35,8 @@ export const getUser = async (req, res)=>{
     try{
         const users = await Userdb.find();
         if(!users[0]){
-            return createErrorMessage({message:`No user found`, res, statusCode:404});
+            // return createErrorMessage({message:`No user found`, res, statusCode:404});
+            return res.render('add-user');
         }
         return res.render('list-users', {users});
         // return createSuccessMessage({message: user, res, data:user});
