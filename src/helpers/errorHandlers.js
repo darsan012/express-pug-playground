@@ -1,3 +1,5 @@
+// helpers to create error and success messages with the status code
+
 export const createSuccessMessage = ({
     message = "Success",
     data = {},

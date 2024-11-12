@@ -1,5 +1,6 @@
 extends layout
-
+//- update the user, old data is displayed and new data can be added.
+//- After update, it goes back to the list users page
 block content
   h2 Update User
   form(action=`/user/update/${user._id}` method="POST" class="w3-container w3-margin-top")
@@ -32,11 +33,11 @@ block content
         input.w3-input(type="email" name="email" value=user.email required)
       .w3-section
         label User Notes
-        textarea.w3-input(type="text" name="userNotes") #{user.userNotes}
+        textarea.w3-input(type="text" name="userNotes") #{user.userNotes} 
       .w3-section
         button.w3-button.w3-teal.w3-round.w3-margin-right(type="submit") Update User
         
-  // Delete form
+  //- Delete form 
   .w3-section
    form(action=`/user/delete/${user._id}` method="POST" class="w3-container w3-margin-right")
      button.w3-button.w3-red.w3-round.w3-margin-right(type="submit") Delete User

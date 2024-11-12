@@ -22,8 +22,8 @@ export const createUser = async (req, res)=>{
             userNotes : req.body.userNotes
         })
 
-        await user.save();
-        // createSuccessMessage({message: "User created sucessfuly", res, data:user});
+        await user.save(); // saving user to database
+        // after saving redirect back to list of users
         return res.redirect('/user');
     }
     catch(err){
@@ -31,11 +31,11 @@ export const createUser = async (req, res)=>{
     }
 }
 
+// listing all the users
 export const getUser = async (req, res)=>{
     try{
         const users = await Userdb.find();
         if(!users[0]){
-            // return createErrorMessage({message:`No user found`, res, statusCode:404});
             return res.render('add-user');
         }
         return res.render('list-users', {users});
@@ -65,6 +65,7 @@ export const updateUser = async (req, res) => {
     }
 }
 
+// for deleting the user
 export const deleteUser = async (req, res) => {
     try {
         const data = await Userdb.findByIdAndDelete(req.params.id);
@@ -73,6 +74,7 @@ export const deleteUser = async (req, res) => {
 
         }
         // return createSuccessMessage({message: "sucessfully delted the user", res, data});
+        // redirect to the users after deleting the users
         return res.redirect('/user');
         
     } catch (err) {
