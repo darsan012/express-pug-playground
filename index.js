@@ -1,3 +1,6 @@
+// Name : Darshan Gautam
+// Student Number : c0916788
+
 import express from 'express';
 import dotenv from 'dotenv';
 import connectDB from './src/database/connection.js'
