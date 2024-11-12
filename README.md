@@ -1,6 +1,7 @@
 # Node js and JavaScript assignment
-## use of node js, mongodb, mongoose, express and pug
-## use of w3css for page formatting
+  use of node js, mongodb, mongoose, express and pug
+  use of w3css for page formatting
+  use of mongoDb atlas for data storage
 
 # steps to run the project
 - npm install
