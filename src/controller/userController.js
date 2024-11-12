@@ -67,7 +67,6 @@ export const updateUser = async (req, res) => {
 
 export const deleteUser = async (req, res) => {
     try {
-        // console.log(hello);
         const data = await Userdb.findByIdAndDelete(req.params.id);
         if(!data){
             return createErrorMessage({message:`Cannot update delete with it ${req.params.id}. Maybe user not found. `, res, statusCode:404});
