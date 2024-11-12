@@ -34,7 +34,7 @@ export const createUser = async (req, res)=>{
 // listing all the users
 export const getUser = async (req, res)=>{
     try{
-        const users = await Userdb.find();
+        const users = await Userdb.find().sort("firstName"); // gives all sorted users according to first name
         if(!users[0]){
             return res.render('add-user');
         }
